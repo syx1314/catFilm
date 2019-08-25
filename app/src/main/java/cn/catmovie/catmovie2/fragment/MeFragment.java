@@ -12,12 +12,13 @@ import com.qmuiteam.qmui.widget.webview.QMUIWebView;
 import com.qmuiteam.qmui.widget.webview.QMUIWebViewClient;
 
 import cn.catmovie.catmovie2.R;
+import cn.catmovie.catmovie2.base.BaseFragment;
 
 /**
  * Created by 呆呆 on 2019/8/22.
  */
 
-public class MeFragment extends QMUIFragment {
+public class MeFragment extends BaseFragment {
 
     @Override
     protected View onCreateView() {

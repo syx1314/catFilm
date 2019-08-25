@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.qmuiteam.qmui.layout.QMUILinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cn.catmovie.catmovie2.LoadHtmlActivity">
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="8px"
+        android:layout_gravity="top"
+        android:progressDrawable="@drawable/progress_style"
+        android:visibility="gone" />
+    <cn.catmovie.catmovie2.view.X5WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</com.qmuiteam.qmui.layout.QMUILinearLayout>

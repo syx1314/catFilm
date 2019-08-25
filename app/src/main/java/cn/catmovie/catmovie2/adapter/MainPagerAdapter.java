@@ -14,6 +14,8 @@ import com.qmuiteam.qmui.widget.QMUIPagerAdapter;
 
 import java.util.List;
 
+import cn.catmovie.catmovie2.base.BaseFragment;
+
 /**
  * Created by 呆呆 on 2019/8/22.
  */
@@ -22,7 +24,7 @@ public class MainPagerAdapter extends QMUIFragmentPagerAdapter {
 
 
     private String[] titles;
-    List<QMUIFragment> fragmentList;
+    List<BaseFragment> fragmentList;
 
     public MainPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -33,7 +35,7 @@ public class MainPagerAdapter extends QMUIFragmentPagerAdapter {
         return fragmentList.get(position);
     }
 
-    public MainPagerAdapter(FragmentManager fm,String[] titles, List<QMUIFragment> fragmentList) {
+    public MainPagerAdapter(FragmentManager fm,String[] titles, List<BaseFragment> fragmentList) {
         super(fm);
         this.titles=titles;
         this.fragmentList=fragmentList;
@@ -51,4 +53,5 @@ public class MainPagerAdapter extends QMUIFragmentPagerAdapter {
     public int getCount() {
         return titles.length;
     }
+
 }

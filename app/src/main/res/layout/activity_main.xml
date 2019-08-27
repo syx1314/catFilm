@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="cn.catmovie.catmovie2.MainActivity">
-    <cn.catmovie.catmovie2.view.NoScrollViewPager
+    <com.qmuiteam.qmui.widget.QMUIViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="0dp"

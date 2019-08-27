@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.qmuiteam.qmui.arch.QMUIActivity;
 import com.qmuiteam.qmui.arch.QMUIFragment;
+import com.qmuiteam.qmui.util.QMUIDisplayHelper;
 import com.qmuiteam.qmui.widget.QMUITabSegment;
 import com.qmuiteam.qmui.widget.QMUIViewPager;
 
@@ -28,7 +29,7 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.tab)
     QMUITabSegment tab;
     @BindView(R.id.viewpager)
-    NoScrollViewPager viewpager;
+    QMUIViewPager viewpager;
     String[] titles={"首页","直播","发现","我的"};
 
 
@@ -48,6 +49,7 @@ public class MainActivity extends BaseActivity {
         fragmentList.add(new FindFragment());
         fragmentList.add(new MeFragment());
         viewpager.setAdapter(new MainPagerAdapter(getSupportFragmentManager(),titles,fragmentList));
+        tab.setupWithViewPager(viewpager);
 
     }
 

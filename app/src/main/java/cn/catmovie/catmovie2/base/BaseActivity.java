@@ -32,11 +32,14 @@ public abstract class BaseActivity extends QMUIActivity {
     private String ck;
     List<Cookie> allCookie;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        QMUIStatusBarHelper.translucent(this);
         setContentView(layoutId());
         ButterKnife.bind(this);
+
         QMUIStatusBarHelper.setStatusBarLightMode(this);
         initData();
     }

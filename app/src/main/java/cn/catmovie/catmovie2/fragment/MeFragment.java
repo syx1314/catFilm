@@ -91,7 +91,7 @@ public class MeFragment extends BaseFragment {
                                     tvScore.setText(userInfo.getUser_points());
                                     tvLoginNum.setText(userInfo.getUser_login_num());
                                     if (!TextUtils.isEmpty(userInfo.getUser_end_time())){
-                                        Date date=new Date(Long.valueOf(userInfo.getUser_end_time()));
+                                        Date date=new Date(Long.valueOf(userInfo.getUser_end_time())*1000);
                                         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
                                         String format = sdf.format(date);
                                         tvVipEnd.setText("VIP到期时间:"+format);

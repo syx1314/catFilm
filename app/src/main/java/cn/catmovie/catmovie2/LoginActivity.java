@@ -26,6 +26,7 @@ import cn.catmovie.catmovie2.base.BaseActivity;
 import cn.catmovie.catmovie2.base.BaseUrl;
 import cn.catmovie.catmovie2.base.CommonCallBack;
 import cn.catmovie.catmovie2.bean.ApiResult;
+import cn.catmovie.catmovie2.callback.JsonCallback;
 import okhttp3.Cookie;
 import okhttp3.ResponseBody;
 import okio.BufferedSource;
@@ -52,30 +53,22 @@ public class LoginActivity extends BaseActivity {
 
     @OnClick(R.id.btn_login)
     public void login() {
-        OkGo.<ApiResult>post(BaseUrl.URL+"/index.php/user/login.html")
-                .params("user_name",etAccount.getText().toString())
-                .params("user_pwd",etPwd.getText().toString())
-                .execute(new CommonCallBack<ApiResult>(ApiResult.class){
-                    @Override
-                    public void onFinish() {
-                        super.onFinish();
-                    }
-
+        OkGo.<ApiResult>post(BaseUrl.URL + "/index.php/user/login.html")
+                .params("user_name", etAccount.getText().toString())
+                .params("user_pwd", etPwd.getText().toString())
+                .execute(new JsonCallback<ApiResult>() {
                     @Override
                     public void onSuccess(Response<ApiResult> response) {
-                        super.onSuccess(response);
                         ApiResult body = response.body();
-                        if (body!=null) {
-
-                            if("1".equals(body.getCode())){
+                        if (body != null) {
+                            if ("1".equals(body.getCode())) {
                                 //登录成功
                                 finish();
-                            }else {
+                            } else {
                                 new QMUIDialog.MessageDialogBuilder(LoginActivity.this).setMessage(body.getMsg()).show();
                             }
 
                         }
-
                     }
                 });
     }

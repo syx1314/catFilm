@@ -20,11 +20,9 @@ import cn.catmovie.catmovie2.base.BaseFragment;
 
 public class LiveFragment extends BaseFragment {
 
+
     @Override
-    protected View onCreateView() {
-
-        return LayoutInflater.from(getContext()).inflate(R.layout.fragment_live,null);
+    public int layoutResId() {
+        return R.layout.fragment_live;
     }
-
-
 }

@@ -51,6 +51,7 @@ public class MainActivity extends BaseActivity {
         viewpager.setAdapter(new MainPagerAdapter(getSupportFragmentManager(),titles,fragmentList));
         tab.setupWithViewPager(viewpager);
 
+
     }
 
 

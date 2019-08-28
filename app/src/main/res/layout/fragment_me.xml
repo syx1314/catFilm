@@ -16,24 +16,35 @@
             android:scaleType="fitXY"
             android:src="@mipmap/userbg" />
 
-        <com.qmuiteam.qmui.widget.QMUIRadiusImageView
-            android:id="@+id/iv_head"
-            android:layout_width="wrap_content"
-
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:src="@mipmap/ic_launcher"
-            app:qmui_is_circle="true" />
-
-        <TextView
-            android:id="@+id/tv_name"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/iv_head"
             android:layout_centerInParent="true"
-            android:layout_marginTop="20dp"
-            android:text="syx1314"
-            android:textSize="18sp" />
+            android:gravity="center"
+            android:orientation="vertical">
+            <com.qmuiteam.qmui.widget.QMUIRadiusImageView
+                android:id="@+id/iv_head"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"
+                app:qmui_is_circle="true" />
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="您的昵称"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/tv_vip_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="vip到期时间"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+
     </com.qmuiteam.qmui.alpha.QMUIAlphaRelativeLayout>
 
     <LinearLayout
@@ -53,7 +64,7 @@
                 android:id="@+id/tv_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="100"
+                android:text="0"
                 android:textColor="#fb4343" />
 
             <TextView
@@ -74,7 +85,7 @@
                 android:id="@+id/tv_vip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="100"
+                android:text="--"
                 android:textColor="#fb4343" />
 
             <TextView
@@ -95,7 +106,7 @@
                 android:id="@+id/tv_login_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="100"
+                android:text="0"
                 android:textColor="#fb4343" />
 
             <TextView
@@ -142,6 +153,7 @@
         <View style="@style/view_divider"/>
     </com.qmuiteam.qmui.layout.QMUILinearLayout>
     <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+        android:id="@+id/btn_exit"
         android:layout_width="match_parent"
         android:text="退出"
         android:layout_marginLeft="10dp"

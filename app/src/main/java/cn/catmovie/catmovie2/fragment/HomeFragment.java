@@ -29,11 +29,6 @@ import cn.catmovie.catmovie2.view.X5WebView;
 public class HomeFragment extends BaseFragment {
     X5WebView webView;
 
-    @Override
-    protected View onCreateView() {
-
-        return LayoutInflater.from(getContext()).inflate(R.layout.fragment_home, null);
-    }
 
 
     @Override
@@ -75,6 +70,11 @@ public class HomeFragment extends BaseFragment {
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public int layoutResId() {
+        return R.layout.fragment_home;
     }
 
     @Override

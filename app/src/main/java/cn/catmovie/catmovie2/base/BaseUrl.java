@@ -7,5 +7,5 @@ package cn.catmovie.catmovie2.base;
 public   class BaseUrl {
 
 
-    public  static  String URL="http://catmovie.cn";
+    public  static  String URL="http://wap.catmovie.cn";
 }

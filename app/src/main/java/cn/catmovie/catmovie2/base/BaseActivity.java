@@ -62,7 +62,6 @@ public abstract class BaseActivity extends QMUIActivity {
         CookieManager cookieManager = CookieManager.getInstance();
         cookieManager.setAcceptCookie(true);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-
             cookieManager.removeSessionCookies(null);
             cookieManager.flush();
         } else {
@@ -74,8 +73,12 @@ public abstract class BaseActivity extends QMUIActivity {
 
         CookieManager cookieManager = CookieManager.getInstance();
         cookieManager.setAcceptCookie(true);
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            cookieManager.setAcceptThirdPartyCookies(webView, true);
+
+                if (webView!=null) {
+                    cookieManager.setAcceptThirdPartyCookies(webView, true);
+                }
             cookieManager.removeSessionCookies(null);
         } else {
             cookieManager.removeSessionCookie();

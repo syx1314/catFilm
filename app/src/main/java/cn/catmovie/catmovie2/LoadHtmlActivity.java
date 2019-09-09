@@ -1,6 +1,7 @@
 package cn.catmovie.catmovie2;
 
 
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -43,27 +44,7 @@ public class LoadHtmlActivity extends BaseActivity {
 
 //        wb.loadUrl(url);
        wb.loadUrl(url);
-        wb.setWebViewClient(new WebViewClient() {
 
-
-            @Override
-            public WebResourceResponse shouldInterceptRequest(WebView webView, WebResourceRequest webResourceRequest) {
-             String url= webResourceRequest.getUrl().toString();
-             setCookie(webView,url);
-                return super.shouldInterceptRequest(webView, webResourceRequest);
-            }
-
-            @Override
-            public void onPageFinished(WebView webView, String s) {
-
-                super.onPageFinished(webView, s);
-                String js = "javascript:(function() {document.getElementById(\"header_sort\").style.display=\'none\';" + "})()";
-
-                wb.loadUrl(js);
-
-
-            }
-        });
         wb.setWebChromeClient(new WebChromeClient() {
             @Override
             public void onProgressChanged(WebView webView, int newProgress) {

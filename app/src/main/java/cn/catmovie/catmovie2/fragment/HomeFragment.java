@@ -36,29 +36,7 @@ public class HomeFragment extends BaseFragment {
         super.onActivityCreated(savedInstanceState);
         webView = getActivity().findViewById(R.id.wv);
         webView.loadUrl("http://www.catmovie.cn/");
-
-        webView.setWebViewClient(new com.tencent.smtt.sdk.WebViewClient() {
-            @Override
-            public boolean shouldOverrideUrlLoading(com.tencent.smtt.sdk.WebView webView, String s) {
-
-                if (!TextUtils.isEmpty(s)) {
-
-
-                    if (s.contains("/user/login.html")) {
-                        Intent intent = new Intent(getActivity(), LoginActivity.class);
-                        intent.putExtra("url", s);
-                        startActivity(intent);
-                    } else {
-                        Intent intent = new Intent(getActivity(), LoadHtmlActivity.class);
-                        intent.putExtra("url", s);
-                        startActivity(intent);
-                    }
-                    return true;
-
-                }
-                return super.shouldOverrideUrlLoading(webView, s);
-            }
-        });
+//        webView.loadUrl("http://debugtbs.qq.com");
 
     }
 

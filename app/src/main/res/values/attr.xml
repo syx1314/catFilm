@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CommonTitle">
+        <attr name="commonTitleColor" format="color"/>
+        <attr name="leftVisibility" format="boolean" />
+        <attr name="rightVisibility" format="boolean" />
+        <attr name="rightTvVisibility" format="boolean" />
+        <attr name="rightTvContent" format="string" />
+        <attr name="title" format="string" />
+        <attr name="title_icon" format="reference"/>
+    </declare-styleable>
+
+</resources>

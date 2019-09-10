@@ -1,15 +1,15 @@
 package cn.catmovie.catmovie2;
 
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.support.v4.app.FragmentTabHost;
 
-import com.qmuiteam.qmui.arch.QMUIActivity;
-import com.qmuiteam.qmui.arch.QMUIFragment;
-import com.qmuiteam.qmui.util.QMUIDisplayHelper;
-import com.qmuiteam.qmui.widget.QMUITabSegment;
-import com.qmuiteam.qmui.widget.QMUIViewPager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TabHost;
+import android.widget.TextView;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,16 +22,18 @@ import cn.catmovie.catmovie2.fragment.FindFragment;
 import cn.catmovie.catmovie2.fragment.HomeFragment;
 import cn.catmovie.catmovie2.fragment.LiveFragment;
 import cn.catmovie.catmovie2.fragment.MeFragment;
-import cn.catmovie.catmovie2.view.NoScrollViewPager;
+
 
 public class MainActivity extends BaseActivity {
 
     @BindView(R.id.tab)
-    QMUITabSegment tab;
-    @BindView(R.id.viewpager)
-    QMUIViewPager viewpager;
-    String[] titles={"首页","直播","发现","我的"};
+    FragmentTabHost tab;
+    @BindView(R.id.fl)
+    FrameLayout fl;
 
+    String[] titles={"首页","直播","发现","我的"};
+    int[] resId={R.drawable.bt_home_selector,R.drawable.bt_live_selector,R.drawable.bt_tab3_selector,R.drawable.bt_tab4_selector};
+    List<Fragment> fragmentList;
 
     @Override
     public int layoutId() {
@@ -40,17 +42,21 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initData() {
-        tab.setupWithViewPager(viewpager,true);
-
-
-        List<BaseFragment> fragmentList=new ArrayList<>();
+        fragmentList=new ArrayList<>();
         fragmentList.add(new HomeFragment());
         fragmentList.add(new LiveFragment());
         fragmentList.add(new FindFragment());
         fragmentList.add(new MeFragment());
-        viewpager.setAdapter(new MainPagerAdapter(getSupportFragmentManager(),titles,fragmentList));
-        tab.setupWithViewPager(viewpager);
+        tab.setup(this,getSupportFragmentManager(),R.id.fl);
 
+        for (int i = 0; i < titles.length; i++) {
+            View inflate = getLayoutInflater().from(this).inflate(R.layout.layout_tab, null);
+            ImageView ivImg = inflate.findViewById(R.id.iv_img);
+            TextView tvTab = inflate.findViewById(R.id.tv_tab);
+            ivImg.setImageResource(resId[i]);
+            tvTab.setText(titles[i]);
+            tab.addTab(tab.newTabSpec(""+i).setIndicator(inflate),fragmentList.get(i).getClass(),null);
+        }
 
     }
 

@@ -23,7 +23,10 @@ public abstract class BaseFragment extends QMUIFragment {
     private Unbinder bind;
 
     public  abstract int layoutResId();
+public void init(){};
+    public void loadData(){
 
+    };
 
 
     @Override
@@ -31,6 +34,13 @@ public abstract class BaseFragment extends QMUIFragment {
         View inflate = LayoutInflater.from(getContext()).inflate(layoutResId(), null);
          bind = ButterKnife.bind(this,inflate);
         return inflate;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        init();
+        loadData();
     }
 
     @Override

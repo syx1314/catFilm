@@ -57,14 +57,18 @@ public class X5WebView extends WebView {
 					Intent intent = new Intent(getContext(), LoginActivity.class);
 					intent.putExtra("url", url);
 					getContext().startActivity(intent);
+					return true;
+
 				}else if(url.contains("vod/type/")||url.endsWith("catmovie.cn/")){
 					view.loadUrl(url);
+					return true;
+
 				} else {
 					Intent intent = new Intent(getContext(), LoadHtmlActivity.class);
 					intent.putExtra("url", url);
 					getContext().startActivity(intent);
+					return true;
 				}
-				return true;
 
 			}
 
